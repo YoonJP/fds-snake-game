@@ -6,10 +6,14 @@ import {ROWS, COLS} from './config';
 function SnakeGameLogic() {
   // 각 마디의 좌표를 저장하는 배열
   this.joints = [
-    {x: 2, y: 0},
-    {x: 1, y: 0},
-    {x: 0, y: 0},
-  ];
+    {x: 5, y: 7},
+    {x: 4, y: 7},
+    {x: 3, y: 7},
+    {x: 2, y: 7},
+    {x: 1, y: 7},
+    {x: 0, y: 7},
+  ]
+  ;
 
   // 먹이의 좌표
   this.fruit = {x: 3, y: 5};
@@ -17,6 +21,7 @@ function SnakeGameLogic() {
 
 SnakeGameLogic.prototype.up = function() {
   // 위쪽 화살표 키를 누르면 실행되는 함수
+
   console.log('up');
 }
 
@@ -32,6 +37,25 @@ SnakeGameLogic.prototype.left = function() {
 
 SnakeGameLogic.prototype.right = function() {
   // 오른쪽 화살표 키를 누르면 실행되는 함수
+  
+  SnakeGameLogic.joints[0].x += 1
+  SnakeGameLogic.joints[1].x += 1;
+  SnakeGameLogic.joints[2].x += 1;
+  SnakeGameLogic.joints[3].x += 1;
+  SnakeGameLogic.joints[4].x += 1;
+  SnakeGameLogic.joints[5].x += 1;
+  // SnakeGameLogic.joints.unshift(SnakeGameLogic.joints[2]);
+
+  // // 꼬리를 떼서
+  // const tail = joints.pop()
+
+  // // 위치를 바꿔준 후
+  // tail.x = 3
+
+  // // 머리 앞에 갖다 붙인다!
+  // joints.unshift(tail)
+
+  // console.log(SnakeGameLogic.joints)
   console.log('right');
 }
 
