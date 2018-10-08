@@ -21,7 +21,7 @@ function SnakeGameLogic() {
     // 각 마디의 좌표를 저장하는 배열
     this.joints = [
         { x: 2, y: 0 },// index = 0 (head)
-        { x: 1, y: 0 },// index = 1 (body)
+        { x: 1, y: 0 },// index = 1 
         { x: 0, y: 0 }// index = 2 (tail)
     ];
     // 화살표키를 계속 누르지 않아도 뱀이 이동할 수 있게 방향을 저장
@@ -48,8 +48,6 @@ SnakeGameLogic.prototype.right = function () {
 }
 
 SnakeGameLogic.prototype.nextState = function () {
-    // 한 번 움직여야 할 타이밍마다 실행되는 함수
-    console.log(`nextState`);
     let tailToHead = this.joints.pop() 
     // 떼어진 꼬리(붙여질 머리)의 위치를 바꿔줌
     if (this.direction === 'up') {
@@ -77,7 +75,7 @@ SnakeGameLogic.prototype.nextState = function () {
     } 
     // 먹이를 먹었을 때 뱀의 길이가 늘어남, 먹이가 뱀의 몸과 안 겹치게 생성됨
     if (tailToHead.x === this.fruit.x && tailToHead.y === this.fruit.y) {
-      let fruitToTail = { x: this.fruit.x, y: this.fruit.y };
+        let fruitToTail = { x: this.fruit.x, y: this.fruit.y };
         this.joints.push(fruitToTail);
       do {
         this.fruit.x = Math.floor(Math.random() * COLS);
