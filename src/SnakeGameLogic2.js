@@ -51,15 +51,13 @@ SnakeGameLogic.prototype.nextState = function () {
     let tailToHead = {}
     // 먹이를 먹었을 때 뱀의 길이가 늘어남(꼬리를 떼지 않음), 먹이가 뱀의 몸과 안 겹치게 생성됨
     if (this.joints[0].x === this.fruit.x && this.joints[0].y === this.fruit.y) {
-        do {
-            this.fruit.x = Math.floor(Math.random() * COLS);
-            this.fruit.y = Math.floor(Math.random() * ROWS);
-        } while (
-            this.fruit.x === tailToHead.x && this.fruit.y === tailToHead.y &&
-            this.joints.some(joint => joint.x === this.fruit.x && joint.y === this.fruit.y));
+      do {
+        this.fruit.x = Math.floor(Math.random() * COLS);
+        this.fruit.y = Math.floor(Math.random() * ROWS);
+      } while (this.fruit.x === this.joints[0].x && this.fruit.y === this.joints[0].y && this.joints.some(joint => joint.x === this.fruit.x && joint.y === this.fruit.y));
     } else {
-        // 먹이를 먹는 경우가 아니면 꼬리를 뗌
-        tailToHead = this.joints.pop()
+      // 먹이를 먹는 경우가 아니면 꼬리를 뗌
+      tailToHead = this.joints.pop();
     }
     // 떼어진 꼬리(붙여질 머리)의 위치를 바꿔줌
     if (this.direction === 'up') {
